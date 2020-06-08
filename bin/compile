@@ -18,5 +18,5 @@ mkdir -p $1/.profile.d
 cat <<EOF > $1/.profile.d/000_vim.sh
 #!/usr/bin/env bash
 
-alias vim=$HOME/.apt/usr/bin/vim.basic
+alias vim=\$HOME/.apt/usr/bin/vim.basic
 EOF
