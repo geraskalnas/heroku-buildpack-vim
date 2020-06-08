@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+function say {
+  echo "       $*"
+}
+function topic {
+  echo "-----> $*"
+}
+
+BP_DIR="$(cd "$(dirname "$0")"/.. && pwd)"
+
+topic Marking to install vim
+echo vim >> $1/Aptfile
+
+topic Writing vim profile script
+mkdir -p $1/.profile.d
+cat <<EOF > $1/.profile.d/000_vim.sh
+#!/usr/bin/env bash
+
+alias vim=$HOME/.apt/usr/bin/vim.basic
+EOF
